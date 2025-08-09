@@ -80,11 +80,13 @@ This system replicates Kafka's core functionality:
 - Each message saved as numbered `.txt` files (1.txt, 2.txt, etc.)
 - Full directory replication keeps all brokers synchronized
 
-## Limitations
+## Key Files
 
-- Simple port-based leader election (no sophisticated consensus)
-- Full directory replication after each message (inefficient)
-- Fixed 3-broker, 3-partition architecture
-- No fault tolerance or authentication
+- **global.txt**: Contains current leader broker port (e.g., "3125")
+  - Read by producers to know which broker to connect to
+  - Updated by ZooKeeper during leader election
 
+- **global1.txt**: Consumer port counter starting from 3180
+  - Auto-increments to assign unique ports to each new consumer
+  - Prevents port conflicts when multiple consumers start
 ---
