@@ -12,7 +12,7 @@ This system replicates Kafka's core functionality:
 - **Replication**: Leader replicates data to all other brokers
 - **ZooKeeper Coordinator**: Monitors brokers and manages leader election
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
@@ -24,7 +24,7 @@ This system replicates Kafka's core functionality:
          │                       │                       │
          ▼                       ▼                       ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                    Broker Cluster                              │
+│                    Broker Cluster                               │
 ├─────────────────┬─────────────────┬─────────────────────────────┤
 │   Broker 1      │   Broker 2      │   Broker 3                  │
 │   (Port: 3125)  │   (Port: 3126)  │   (Port: 3127)              │
@@ -43,8 +43,8 @@ This system replicates Kafka's core functionality:
 
 1. **Setup**:
    ```bash
-   echo "3125" > global.txt
-   echo "3180" > global1.txt
+   echo "3125" > global.txt(can use any port number from 1024-49151)
+   echo "3180" > global1.txt(can use any port number from 1024-49151)
    mkdir -p server1 server2 server3
    ```
 
